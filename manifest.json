@@ -4,10 +4,18 @@
   "description": "Find corona on the site and replace by an icon",
   "manifest_version": 2,
   "icons": {
-    "16": "assets/icon/icon@16.png",
-    "32": "assets/icon/icon@32.png",
-    "48": "assets/icon/icon@48.png",
-    "128": "assets/icon/icon@128.png"
+    "16": "assets/icon@16.png",
+    "32": "assets/icon@32.png",
+    "48": "assets/icon@48.png",
+    "128": "assets/icon@128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "assets/icon@16.png",
+      "32": "assets/icon@32.png",
+      "48": "assets/icon@48.png",
+      "128": "assets/icon@128.png"
+    }
   },
   "content_scripts": [
     {
@@ -16,5 +24,8 @@
       ],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
 }

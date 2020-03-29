@@ -1,6 +1,6 @@
 const REX = /(coronavirus|coronavírus|corona-19|covid-19|corona)/gi;
 
-const ignoreTag = ['script', 'noscript', 'source'];
+const ignoreTag = ['script', 'noscript', 'source', 'style'];
 
 const [body] = document.getElementsByTagName('body');
 
@@ -8,11 +8,11 @@ function findMatche(element) {
   if (!element.childElementCount) {
     if(ignoreTag.includes(element.localName)) return;
 
-    const text = element.textContent.replace(REX, '💉');
-  
-    element.textContent = text;
+    const text = element.textContent;
 
-    // console.log(element.localName, text);
+    if (text) {
+      element.textContent = text.replace(REX, '💉');
+    }
 
     return;
   }
@@ -22,4 +22,6 @@ function findMatche(element) {
   }
 }
 
-findMatche(body);
+chrome.runtime.onMessage.addListener(req => {
+  if(req.message === 'load') findMatche(body);
+});
