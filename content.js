@@ -1,4 +1,4 @@
-const REX = /(coronavirus|coronavírus|corona-19|covid-19|corona)/gi;
+const REX = /(coronavirus|coronavírus|corona-19|covid-19|corona (virus|vírus)|corona)/gi;
 
 const ignoreTag = ['script', 'noscript', 'source', 'style'];
 
