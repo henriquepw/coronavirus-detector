@@ -1,7 +1,7 @@
 {
   "version": "0.1",
   "name": "Corona Detector",
-  "description": "Find corona on the site and replace by an icon",
+  "description": "Detects coronavirus present on the page and replace by an syringe emoji",
   "manifest_version": 2,
   "icons": {
     "16": "assets/icon@16.png",
