@@ -1,5 +1,4 @@
-// const REX = /(coronav(i|í)rus|(corona|covid)(-| )(19|virus|vírus)|corona)/gi;
-const REX = /(coronavirus|coronavírus|corona-19|covid-19|corona (virus|vírus)|corona)/gi;
+const REX = /coronav(i|í)rus|(corona|covid)(-| )(19|v(i|í)rus|corona)/gi;
 
 const ignoreTag = ['script', 'noscript', 'source', 'style'];
 
@@ -18,7 +17,7 @@ function findMatche(element) {
     return;
   }
 
-  element.children.forEach(el => findMatche(el));
+  for (el of element.children) findMatche(el);
 }
 
 chrome.runtime.onMessage.addListener(req => {
